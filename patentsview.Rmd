@@ -1,0 +1,58 @@
+---
+title: "Patentsview"
+author: "Connor Flynn"
+date: "10/30/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(patentsview)
+library(tidyverse) # for data manipulation
+library(highcharter) # wrapper of highchart library to generate interactive visualisations
+library(here)
+```
+
+```{r}
+query <- 
+  with_qfuns(
+    and(
+    #   gte(patent_date = "2016-01-01"),
+    or(
+        text_all(patent_abstract = "nano"),
+        text_all(patent_abstract = "nanomaterial"),
+        text_all(patent_abstract = "carbon nanotubes")
+        
+    )))
+# ,
+#       or(
+#         qry_funs$eq(cpc_subsection_id = "G02B"),
+#         qry_funs$eq(cpc_subsection_id = "G09B"),
+#         qry_funs$eq(cpc_subsection_id = "G01"),
+#         qry_funs$eq(cpc_subsection_id = "G21K"),
+#         qry_funs$eq(cpc_subsection_id = "B64"),
+#         qry_funs$eq(cpc_subsection_id = "G08"),
+#         qry_funs$eq(cpc_subsection_id = "G05"))
+#     )
+#   )
+```
+
+
+```{r}
+fields <- c("patent_number", "assignee_organization",
+            "patent_num_cited_by_us_patents", "app_date", "patent_date",
+            "assignee_total_num_patents", "forprior_country", "assignee_id", "assignee_longitude", "assignee_latitude")
+```
+
+```{r}
+pv_out <- search_pv(query = query, fields = fields, all_pages = TRUE)
+```
+
+
+
+```{r}
+data <- pv_out$data
+
+data <- data$patents
+```
+
