@@ -39,6 +39,8 @@ query <-
 #   )
 ```
 
+Are there more interesting fields to collect?
+
 
 ```{r}
 fields <- c("patent_number", "assignee_organization",
@@ -132,4 +134,9 @@ data %>%
   hc_title(text = "Top 5 assignees patenting on 'Carbon Nanotubes'") %>%
   hc_subtitle(text = "Annual patent applications through time")
 ```
+
+
+To do: 
+Different keywords
+Map with color indicating patents per country (change color over time)
 
