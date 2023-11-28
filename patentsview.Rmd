@@ -13,6 +13,7 @@ library(highcharter) # wrapper of highchart library to generate interactive visu
 library(here)
 library(leaflet)
 library(htmltools)
+library(ggmap)
 ```
 
 ```{r}
@@ -89,6 +90,7 @@ pd <- leaflet(datad) %>%
                    popup = ~popup, ~sqrt(num_pats), color = "#18BC9C")
 pd
 ```
+
 
 
 ```{r}
