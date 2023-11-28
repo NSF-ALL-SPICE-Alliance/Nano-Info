@@ -122,6 +122,7 @@ data <-
 ```
 
 ```{r}
+
 data %>% 
   hchart(., 
          type = "line", 
@@ -133,10 +134,23 @@ data %>%
   hc_yAxis(title = list(text = "Patents on Carbon Nanotubes")) %>%
   hc_title(text = "Top 5 assignees patenting on 'Carbon Nanotubes'") %>%
   hc_subtitle(text = "Annual patent applications through time")
-```
 
+```
 
 To do: 
 Different keywords
 Map with color indicating patents per country (change color over time)
+
+```{r}
+# Create a data frame with the keywords
+keywords <- data.frame(
+  TwoDMaterials = c("Graphene", "Graphene Oxide", "Graphene derivatives", "Transition Metal Dichalcogenides", "Boron Nitride", "Phosphorene", "Sillicene", "Stanene", "MXene", "Black phosphorus"),
+  ThreeDMaterials = c("Nanocomposites", "Nanoparticles", "Nanotubes", "Nanowires", "Nanorods", "Nanofibers", "Quantom Dots", "Nanoclays", "Nanoplates", "Nanocapsules"),
+  Technology = c("Nanotechnology", "Nanomaterial synthesis", "Nanocomposite materials", "Nanoelectronics", "Nanophotonics", "Nanomechanics", "Nanosensors", "Nanocarriers", "3D Printing", "Nanomedicine"),
+  Applications = c("Carbon nanotube composites", "Graphene-based sensors", "3D-printed nanomaterials", "Nanomaterials for energy storage", "Nanomaterials for drug delivery", "Nanomaterials for electronics", "Nanomaterials for aerospace", "Nanomaterials for medical devices", "Nanomaterials for catalysis", "Nanomaterials for coatings")
+)
+
+print(keywords)
+
+```
 
