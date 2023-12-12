@@ -17,6 +17,7 @@ library(ggmap)
 ```
 
 ```{r}
+
 query <- 
   with_qfuns(
     and(
@@ -84,11 +85,11 @@ datad <-
     mutate_at(vars(matches("_l")), as.numeric) %>%
     filter(!is.na(assignee_id))
 
-pd <- leaflet(datad) %>%
+map <- leaflet(datad) %>%
   addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
   addCircleMarkers(lng = ~assignee_longitude, lat = ~assignee_latitude,
                    popup = ~popup, ~sqrt(num_pats), color = "#18BC9C")
-pd
+map
 ```
 
 
