@@ -61,7 +61,7 @@ query <-
 
 fields <- c("patent_number", "assignee_organization",
             "patent_num_cited_by_us_patents", "app_date", "patent_date",
-            "assignee_total_num_patents", "forprior_country", "assignee_id", "assignee_longitude", "assignee_latitude")
+            "assignee_total_num_patents", "forprior_country", "assignee_id", "assignee_longitude", "assignee_latitude", "wipo_field_title", "wipo_sector_title", "ipc_class")
 
 pv_out <- search_pv(query = query, fields = fields, all_pages = TRUE)
 
